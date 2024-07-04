@@ -3,10 +3,13 @@ import { createSlice } from '@reduxjs/toolkit';
 const dataSlice = createSlice({
     name : 'data',
     initialState : {
-        messages : []
+        messages : [],
+        user : null
     },
     reducers: {
-
+        setUser(state, action){
+            state.user = action.payload;
+        }
     }
 });
 
