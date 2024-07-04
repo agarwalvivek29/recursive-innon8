@@ -11,6 +11,7 @@ import Steps from './components/Steps.jsx'
 import Ddashboard from './pages/Ddashboard.jsx'
 import Pdashboard from './pages/Pdashboard.jsx'
 import Pform from './components/Pform.jsx'
+import Modal from './components/Modal.jsx'
 
 
 const router=createBrowserRouter([
@@ -42,6 +43,10 @@ const router=createBrowserRouter([
   {
     path:'/form',
     element:<Pform />
+  },
+  {
+    path:'/modal',
+    element: <Modal />
   }
 
 

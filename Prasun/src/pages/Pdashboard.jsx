@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from '../components/Header'
 import Btn from '../components/Btn'
+import { Link } from 'react-router-dom'
 
 function Pdashboard() {
+  
   return (
     <>
     <Header />
@@ -32,7 +34,7 @@ function Pdashboard() {
     <div className='flex flex-wrap'>
       
       <div><Btn label='find doctors'/></div>
-      <div><Btn label='disease'/></div>
+      <div><Link to="/modal"> <Btn label='disease'/></Link> </div>
       <div><Btn label='add a prescription'/></div>
     </div>
     <h1>My medical history</h1>
@@ -51,6 +53,8 @@ function Pdashboard() {
                 </tbody>
             </table>
         </div>
+       
+          
     </>
   )
 }
