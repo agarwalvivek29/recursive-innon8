@@ -12,6 +12,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import Ddashboard from './components/Ddashboard/Ddashboard';
 import Pdashboard from './components/Pdashboard/Pdashboard';
 
+export const BACKENDURL = 'https://recursive-innon8.onrender.com';
+// export const BACKENDURL = 'http://localhost:8000';
+
+
 function App() {
 
   const user = useSelector(state=>state.data.user);

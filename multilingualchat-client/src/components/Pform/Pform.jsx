@@ -4,6 +4,7 @@ import { toast } from 'sonner';
 import { useDispatch } from 'react-redux';
 import { dataSliceActions } from '../../store/data';
 import { useNavigate } from 'react-router';
+import { BACKENDURL } from '../../App';
 
 const Form = () => {
   const [formData, setFormData] = useState({
@@ -19,6 +20,10 @@ const Form = () => {
   });
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  useEffect(()=>{
+    console.log('Backend URL:', BACKENDURL);
+  },[]);
 
   const { isSignedIn, user, isLoaded } = useUser();
 
@@ -49,7 +54,7 @@ const Form = () => {
       }
       console.log(bodyContent);
 
-      const response = await fetch('https://recursive-innon8.onrender.com/user/create',{
+      const response = await fetch(`${BACKENDURL}/user/create`,{
         method : 'POST',
         body : JSON.stringify(bodyContent),
         headers : {

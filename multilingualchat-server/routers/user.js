@@ -25,7 +25,7 @@ router.post('/', async (req,res) => {
 
 router.post('/update',async (req,res)=>{
 
-    const { clerkId, name, email, mobile, address, age, bloodGroup, weight, height, specialisation, organisation } = req.body;
+    const { name, age, bloodGroup, weight, height, specialisation, organisation } = req.body;
 
     if(!clerkId){
         throw new Error('clerkId is required');
@@ -43,15 +43,6 @@ router.post('/update',async (req,res)=>{
 
     if(name){
         user.name = name;
-    }
-    if(email){
-        user.email = email;
-    }
-    if(mobile){
-        user.mobile = mobile;
-    }
-    if(address){
-        user.address = address;
     }
     if(age){
         user.age = age
@@ -80,7 +71,7 @@ router.post('/update',async (req,res)=>{
 });
 
 router.post('/create',async (req,res)=>{
-    const { name, email, age, bloodGroup, weight, height, specialisation, organisation, clerkId, role } = req.body;
+    const { name, email, age, bloodGroup, gender, weight, height, specialisation, organisation, clerkId, role } = req.body;
 
     if( !name || !age || !gender || !bloodGroup || !clerkId || !role ){
         throw new Error('All these fields are required');
@@ -91,13 +82,25 @@ router.post('/create',async (req,res)=>{
         email,
         age,
         bloodGroup,
-        weight,
-        height,
-        specialisation,
-        organisation,
         clerkId,
         role
     });
+
+    if(role==='doctor'){
+        if(!specialisation || !organisation){
+            throw new Error('Specialisation and organisation are required for doctors');
+        }
+        user.specialisation = specialisation;
+        user.organisation = organisation;
+    }
+
+    if(role==='patient'){
+        if(!weight || !height){
+            throw new Error('Weight and height are required for patients');
+        }
+        user.weight = weight;
+        user.height = height;
+    }
 
     const newUser = await user.save();
 
