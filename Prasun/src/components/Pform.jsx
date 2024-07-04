@@ -1,6 +1,10 @@
-import React, { useState } from 'react';
+import  { useState, useEffect } from 'react';
+import { useUser } from '@clerk/clerk-react';
 
 const Form = () => {
+
+  const { isSignedIn, user, isLoaded } = useUser();
+
   const [formData, setFormData] = useState({
     name: '',
     age: '',
@@ -12,6 +16,13 @@ const Form = () => {
     qualification: '',
   });
 
+  useEffect(() => {
+    console.log(user);
+    console.log(isSignedIn);
+    console.log(isLoaded);
+    console.log('loda');
+  },[formData]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -20,9 +31,26 @@ const Form = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('Form data:', formData);
+
+    try{
+      const response = await fetch('https://recursive-innon8.onrender.com',{
+        method : 'POST',
+        body : JSON.stringify({
+          ...formData
+        }),
+        headers : {
+          'Content-Type' : 'application/json'
+        }
+      });
+      const res = await response.json();
+      console.log(res);
+    }
+    catch(err){
+      console.error(err);
+    }
     // Perform further form submission tasks (e.g., sending data to a server)
   };
 
@@ -106,7 +134,7 @@ const Form = () => {
         {formData.role === 'doctor' && (
           <>
             <div className="mb-4">
-              <label className="block text-gray-700">Specialization</label>
+              <label className="block text-gray-700">Specializations</label>
               <input
                 type="text"
                 name="specialization"
@@ -117,7 +145,7 @@ const Form = () => {
               />
             </div>
             <div className="mb-4">
-              <label className="block text-gray-700">Qualification</label>
+              <label className="block text-gray-700">Qualifications</label>
               <input
                 type="text"
                 name="qualification"
@@ -129,7 +157,7 @@ const Form = () => {
             </div>
           </>
         )}
-        <div className="mb-4">
+        {formData.role === 'doctor' && <div className="mb-4">
           <label className="block text-gray-700">Weight</label>
           <input
             type="number"
@@ -139,7 +167,7 @@ const Form = () => {
             className="mt-1 p-2 w-full border rounded"
             required
           />
-        </div>
+        </div>}
         <button
           type="submit"
           className="mt-4 p-2 w-full bg-blue-500 text-white rounded hover:bg-blue-600"

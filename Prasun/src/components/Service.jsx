@@ -7,7 +7,10 @@ function Service(props) {
       <img src={props.img} alt="" className='h-16 mx-auto'/>
         <h3 className='font-bold'>{props.label}</h3>
         <p>{props.description}</p>
-        <Link to={`/service/${props.url}`}> <h6 className='underline'>Learn more</h6> </Link>
+        <Link 
+        // to={`/service/${props.url}`}
+        to='/'
+        > <h6 className='underline'>Learn more</h6> </Link>
     </div>
   )
 }
