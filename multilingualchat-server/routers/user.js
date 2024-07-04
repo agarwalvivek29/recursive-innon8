@@ -79,4 +79,32 @@ router.post('/update',async (req,res)=>{
     });    
 });
 
+router.post('/create',async (req,res)=>{
+    const { name, email, age, bloodGroup, weight, height, specialisation, organisation, clerkId, role } = req.body;
+
+    if( !name || !age || !gender || !bloodGroup || !clerkId || !role ){
+        throw new Error('All these fields are required');
+    }
+
+    const user = new User({
+        name,
+        email,
+        age,
+        bloodGroup,
+        weight,
+        height,
+        specialisation,
+        organisation,
+        clerkId,
+        role
+    });
+
+    const newUser = await user.save();
+
+    res.status(200).send({
+        success : true,
+        user : newUser
+    });
+});
+
 module.exports = router;

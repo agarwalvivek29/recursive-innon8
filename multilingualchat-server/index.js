@@ -3,11 +3,13 @@ const express = require('express');
 const dbConnect = require('./dbConnect');
 const userRouter = require('./routers/user');
 const appointmentRouter = require('./routers/appointment');
+const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
 const port = process.env.PORT || 8080;
 
+app.use(cors());
 app.use(express.json());
 app.use('/user',userRouter);
 app.use('/appointment',appointmentRouter);
@@ -34,5 +36,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(port, ()=>{
-  console.log('Server chalu on port 8080');
+  console.log('Server chalu on port ',port);
 });
