@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Pform = () => {
+const Form = () => {
   const [formData, setFormData] = useState({
     name: '',
     age: '',
@@ -8,6 +8,8 @@ const Pform = () => {
     gender: '',
     role: '',
     weight: '',
+    specialization: '',
+    qualification: '',
   });
 
   const handleChange = (e) => {
@@ -25,7 +27,7 @@ const Pform = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-4 bg-white rounded-lg shadow-lg">
+    <div className="max-w-md mx-auto mt-10 p-4 bg-white rounded-lg shadow-md">
       <h2 className="text-2xl font-bold mb-4">User Information Form</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
@@ -101,6 +103,32 @@ const Pform = () => {
             <label>Patient</label>
           </div>
         </div>
+        {formData.role === 'doctor' && (
+          <>
+            <div className="mb-4">
+              <label className="block text-gray-700">Specialization</label>
+              <input
+                type="text"
+                name="specialization"
+                value={formData.specialization}
+                onChange={handleChange}
+                className="mt-1 p-2 w-full border rounded"
+                required
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block text-gray-700">Qualification</label>
+              <input
+                type="text"
+                name="qualification"
+                value={formData.qualification}
+                onChange={handleChange}
+                className="mt-1 p-2 w-full border rounded"
+                required
+              />
+            </div>
+          </>
+        )}
         <div className="mb-4">
           <label className="block text-gray-700">Weight</label>
           <input
@@ -123,4 +151,4 @@ const Pform = () => {
   );
 };
 
-export default Pform;
+export default Form;
