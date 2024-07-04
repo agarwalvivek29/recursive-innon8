@@ -5,13 +5,17 @@ const AppointmentSchema = new Schema({
         type: String,
         required: true
     },
+    date : {
+        type : String,
+        required: true
+    },
     doctorId : {
         type: ObjectId,
         required: true
     },
     patientId : {
         type: ObjectId,
-        required: true
+        required: false
     },
 });
 

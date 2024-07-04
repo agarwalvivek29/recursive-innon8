@@ -34,5 +34,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(port, ()=>{
-  console.log('Server chalu on port 8080');
+  console.log('Server chalu on port ',port);
 });

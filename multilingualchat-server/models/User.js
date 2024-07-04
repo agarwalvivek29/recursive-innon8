@@ -58,6 +58,13 @@ const UserSchema = new Schema({
     qualification : {
         type: [String],
         required: false
+    },
+    availability : {
+        default : {
+            start : '16',
+            end : '23'
+        },
+        type : Object,
     }
 });
 
