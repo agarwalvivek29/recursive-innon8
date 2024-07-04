@@ -10,6 +10,7 @@ import Signup from './components/Signup.jsx'
 import Steps from './components/Steps.jsx'
 import Ddashboard from './pages/Ddashboard.jsx'
 import Pdashboard from './pages/Pdashboard.jsx'
+import Pform from './components/Pform.jsx'
 
 
 const router=createBrowserRouter([
@@ -37,6 +38,10 @@ const router=createBrowserRouter([
   {
     path:'/Pdashboard',
     element:<Pdashboard />
+  },
+  {
+    path:'/form',
+    element:<Pform />
   }
 
 
