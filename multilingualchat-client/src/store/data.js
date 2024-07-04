@@ -1,6 +1,6 @@
-import { CreateSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
-const dataSlice = CreateSlice({
+const dataSlice = createSlice({
     name : 'data',
     initialState : {
         messages : []
