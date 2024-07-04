@@ -35,7 +35,7 @@ function Pdashboard() {
       
       <div><Btn label='find doctors'/></div>
       <div><Link to="/modal"> <Btn label='disease'/></Link> </div>
-      <div><Btn label='add a prescription'/></div>
+      <Link to='/pres'><div><Btn label='add a prescription'/></div></Link>
     </div>
     <h1>My medical history</h1>
     <div className='flex justify-center'>

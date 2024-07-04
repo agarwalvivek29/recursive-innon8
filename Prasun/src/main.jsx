@@ -12,6 +12,7 @@ import Ddashboard from './pages/Ddashboard.jsx'
 import Pdashboard from './pages/Pdashboard.jsx'
 import Pform from './components/Pform.jsx'
 import Modal from './components/Modal.jsx'
+import Pres from './components/Pres.jsx'
 
 
 const router=createBrowserRouter([
@@ -47,6 +48,10 @@ const router=createBrowserRouter([
   {
     path:'/modal',
     element: <Modal />
+  },
+  {
+    path:'pres',
+    element:<Pres />
   }
 
 
