@@ -40,12 +40,14 @@ function Pres() {
   };
 
   return (
-    <div className="App">
-      <h1>Upload a File</h1>
+    <div className=" m-12 bg-slate-200  rounded-2xl h-96">
+      <div className='bg-slate-300 rounded-t-2xl p-8'>
+      <h1 className='font-bold text-3xl mb-6'>Upload a File</h1>
       <form onSubmit={handleSubmit}>
         <input type="file" onChange={handleFileChange} />
-        <button type="submit">Upload</button>
+        <button type="submit" className='bg-slate-400 p-2 px-4 rounded-xl'>Upload</button>
       </form>
+      </div>
       {result && (
         <div>
           <h2>Extracted Text</h2>
