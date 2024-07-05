@@ -3,11 +3,15 @@ const express = require('express');
 const dbConnect = require('./dbConnect');
 const userRouter = require('./routers/user');
 const appointmentRouter = require('./routers/appointment');
+const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
 const port = process.env.PORT || 8080;
 
+app.use(cors({
+  origin: '*'
+}));
 app.use(express.json());
 app.use('/user',userRouter);
 app.use('/appointment',appointmentRouter);

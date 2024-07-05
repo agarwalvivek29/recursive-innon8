@@ -1,7 +1,6 @@
-import { useUser, SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/clerk-react';
+import { SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/clerk-react';
 
 export default function AuthBtn() {
-    const user = useUser();
 
     return <>
         <header>

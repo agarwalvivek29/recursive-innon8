@@ -15,14 +15,14 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
-    mobile : {
-        type: String,
-        required: false
-    },
-    address : {
-        type: String,
-        required: false
-    },
+    // mobile : {
+    //     type: String,
+    //     required: false
+    // },
+    // address : {
+    //     type: String,
+    //     required: false
+    // },
     age : {
         type: Number,
         required: false
