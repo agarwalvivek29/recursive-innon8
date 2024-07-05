@@ -78,7 +78,7 @@
 
 
 import React, { useState } from 'react';
-
+import "./DoctorForm.css"
 const DoctorForm = () => {
   const [patientId, setPatientId] = useState('');
   const [patientData, setPatientData] = useState(null);
@@ -93,7 +93,7 @@ const DoctorForm = () => {
     setMessage(''); // Clear any previous messages
 
     try {
-      const response = await fetch(`http://localhost:5000/api/patient/${patientId}`, {
+      const response = await fetch(`https://recursive-innon8-1.onrender.com/api/patient/${patientId}`, {
         method: 'GET'
       });
 
@@ -121,10 +121,10 @@ const DoctorForm = () => {
   };
 
   return (
-    <div>
+    <div className='bg-dark'>
       <form onSubmit={handleSubmit}>
-        <input type="text" value={patientId} onChange={handleChange} placeholder="Patient ID" />
-        <button type="submit">Get Patient Data</button>
+        <input className='inputbox'   type="text" value={patientId} onChange={handleChange} placeholder="Patient ID" />
+        <button className="getdata" type="submit">Get Patient Data</button>
       </form>
       {message && <p>{message}</p>}
       {patientData && (
@@ -141,7 +141,7 @@ const DoctorForm = () => {
               {data.medicalImages && (
                 <div>
                   <h3>Medical Images:</h3>
-                  <img src={data.medicalImages} alt="Medical" />
+                  <img className='imgdimmension' src={data.medicalImages} alt="Medical" />
                 </div>
               )}
             </div>

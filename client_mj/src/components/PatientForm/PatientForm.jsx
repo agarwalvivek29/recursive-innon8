@@ -84,6 +84,7 @@
 
 
 import React, { useState, useEffect } from 'react';
+import "./PatientForm.css"
 import { ethers } from 'ethers';
 import abi from "../../contractJson/MedicalData.json";
 const PatientForm = () => {
@@ -238,15 +239,17 @@ const PatientForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" name="patientId" value={formData.patientId} onChange={handleChange} placeholder="Patient ID" />
-      <input type="text" name="patientName" value={formData.patientName} onChange={handleChange} placeholder="Patient Name" />
-      <input type="number" name="patientAge" value={formData.patientAge} onChange={handleChange} placeholder="Patient Age" />
-      <input type="text" name="patientAddress" value={formData.patientAddress} onChange={handleChange} placeholder="Patient Address" />
-      <input type="text" name="patientContact" value={formData.patientContact} onChange={handleChange} placeholder="Patient Contact" />
-      <input type="email" name="patientEmail" value={formData.patientEmail} onChange={handleChange} placeholder="Patient Email" />
-      <textarea name="medicalHistory" value={formData.medicalHistory} onChange={handleChange} placeholder="Medical History" />
-      <input type="file" name="medicalImages" onChange={handleChange} />
+      <div className='patientForm'>
+      <input className='inputbox' type="text" name="patientId" value={formData.patientId} onChange={handleChange} placeholder="Patient ID" />
+      <input    className='inputbox'  type="text" name="patientName" value={formData.patientName} onChange={handleChange} placeholder="Patient Name" />
+      <input    className='inputbox'  type="number" name="patientAge" value={formData.patientAge} onChange={handleChange} placeholder="Patient Age" />
+      <input    className='inputbox'  type="text" name="patientAddress" value={formData.patientAddress} onChange={handleChange} placeholder="Patient Address" />
+      <input    className='inputbox'  type="text" name="patientContact" value={formData.patientContact} onChange={handleChange} placeholder="Patient Contact" />
+      <input    className='inputbox'  type="email" name="patientEmail" value={formData.patientEmail} onChange={handleChange} placeholder="Patient Email" />
+      <textarea className='inputbox' name="medicalHistory" value={formData.medicalHistory} onChange={handleChange} placeholder="Medical History" />
+      <input className='inputbox' type="file" name="medicalImages" onChange={handleChange} />
       <button type="submit">Submit</button>
+      </div>
 
       {encryptedData && (
         <div>

@@ -1,0 +1,22 @@
+
+.inputbox {
+  width: 300px;
+  padding: 10px;
+  border: 1px solid rgb(107, 130, 152);
+  border-radius: 5px;
+  background-color: rgba(61, 82, 111, 0.443); /* Transparent or watery background color */
+  outline: none; /* Remove default focus outline */
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+  color: rgb(248, 250, 251);
+}
+.patientForm{
+    display: flex;
+    flex-direction: column;
+    background-color:  rgba(61, 82, 111, 0.443);
+    align-items: center;
+    max-width: 30vw;
+    margin-top: 50px;
+    margin-left: 60px;
+    padding: 10px;
+    border-radius: 20px;
+}

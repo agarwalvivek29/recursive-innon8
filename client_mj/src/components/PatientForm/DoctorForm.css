@@ -1,0 +1,21 @@
+.bg-dark{
+    background-color: rgba(61, 82, 111, 0.443);   
+     color: white;
+     max-width: 70vw;
+     justify-content: center;
+     margin-top: 20px;
+     margin-left: 50px;
+     padding: 30px;
+}
+.getdata{
+    background-color: rgb(25, 83, 183);
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    font-size: 13px;
+    border: 05px blue;
+}
+.imgdimmension{
+    height: 200px;
+    width: 200px;
+}
