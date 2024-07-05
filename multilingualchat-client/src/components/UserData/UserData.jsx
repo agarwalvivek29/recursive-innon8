@@ -7,7 +7,7 @@ const UserData=({user})=> {
         return(
             <tr>
                <td>{name}</td>
-               <td><img src="../../public/messenger.png" alt=""  className='h-2 '/></td>
+               <td><img src="../../messenger.png" alt=""  className='h-2 '/></td>
                <td>{time}</td>
             </tr>
         )    })

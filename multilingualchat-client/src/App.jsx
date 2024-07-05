@@ -13,6 +13,9 @@ import Ddashboard from './components/Ddashboard/Ddashboard';
 import Pdashboard from './components/Pdashboard/Pdashboard';
 import Doctor from './components/Doctor/Doctor';
 import Alldoctor from "./components/Alldoctor/Alldoctor"
+import BlockChain from './components/BlockChainPart/Blockchain';
+import DoctorForm from './components/BlockChainPart/PatientForm/DoctorForm';
+
 export const BACKENDURL = 'https://recursive-innon8.onrender.com';
 // export const BACKENDURL = 'http://localhost:8000';
 
@@ -34,6 +37,8 @@ function App() {
           
           <Route path='/book-appointment' element={<Alldoctor />} />
           <Route path='/dashboard' element={ user ? user.role === 'doctor' ? <Ddashboard /> : <Pdashboard /> : <></> } />
+          <Route path='/blockChain' element={<BlockChain />} />
+          <Route path='/records' element={<DoctorForm />} />
           <Route path='*' element={
             <div>
               <h1>404</h1>

@@ -9,7 +9,7 @@
 //            <Link to='/signup'> <button className='bg-black rounded-md text-white p-4 mt-6'>Get started</button></Link> 
 //         </div>
        
-//         <div><img  src='../public/file.png' /></div>
+//         <div><img  src='../file.png' /></div>
 //         <Services/>
 //     </div>
 //   )

@@ -3,21 +3,46 @@ import AuthBtn from '../AuthBtn/AuthBtn';
 
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useUser } from '@clerk/clerk-react';
 import { toast } from 'sonner';
+import { dataSliceActions } from '../../store/data';
+import { BACKENDURL } from '../../App';
 
 function Header() {
 
-  const { isSignedIn } = useUser();
-  const user = useSelector(state => state.data.user);
+  const { user , isSignedIn } = useUser();
+  const userL = useSelector(state => state.data.user);
   const navigate = useNavigate();
+  const  dispatch = useDispatch();
+
+  const getUserData = async () => {
+    const response = await fetch(`${BACKENDURL}/user`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body : JSON.stringify({ clerkId : user.id })
+    });
+
+    const data = await response.json();
+    if(data.success){
+      toast.info('User data fetched');
+      dispatch(dataSliceActions.setUser(data.user));
+      return;
+    }
+    return false;
+  };
 
   useEffect(()=>{
-    if(isSignedIn && !user){
-      toast.success('Signed in successfully');
-      toast.info('Complete this form to proceed');
-      navigate('/registration');
+    if(isSignedIn && !userL){
+      const data = getUserData();
+      if(!data){
+        toast.error('User data not fetched');
+        toast.success('Signed in successfully');
+        toast.info('Complete this form to proceed');
+        navigate('/registration');
+      }
     }
   },[isSignedIn])
 
@@ -35,11 +60,11 @@ function Header() {
     <div>
         <ul className='flex gap-10'>    
         <Link to='/'><li className='hover:underline cursor-pointer'>Home</li></Link>
+        <Link to='/chk'> <li className='hover:underline cursor-pointer'>Check Disease</li>  </Link>
         
-        <Link to='/book-appointment'><li className='hover:underline cursor-pointer'>Doctors</li></Link>
-        <li className='hover:underline cursor-pointer'>Contact</li>
-       <Link to='/Pdashboard'><li>p-dashboard</li></Link> 
-       <Link to='/Ddashboard'><li>D-dashboard</li></Link> 
+        <a href='/blockChain'><li className='hover:underline cursor-pointer'>Add Medical Rcords</li></a>
+        <Link to='/records' className='hover:underline cursor-pointer'>My Medical Records</Link>
+        <Link to='/dashboard'><li>Dashboard</li></Link> 
         </ul>
     </div>
     <div>

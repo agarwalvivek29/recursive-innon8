@@ -16,7 +16,7 @@ function Header() {
         <Link to='/'><li className='hover:underline cursor-pointer'>Home</li></Link>
         
         <a href='#serv'><li className='hover:underline cursor-pointer'>Service</li></a>
-        <li className='hover:underline cursor-pointer'>Contact</li>
+        <li className='hover:underline cursor-pointer'>My Medical History</li>
        <Link to='/Pdashboard'><li>p-dashboard</li></Link> 
        <Link to='/Ddashboard'><li>D-dashboard</li></Link> 
         </ul>
