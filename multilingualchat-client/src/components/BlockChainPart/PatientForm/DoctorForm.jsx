@@ -104,7 +104,7 @@ const DoctorForm = () => {
   useEffect(()=>{
     if(!patientData){
       counter();
-      const userId = user.id;
+      const userId = user ? user.id : '';
       setPatientId(userId);
       fetchData();
       console.log(userId);

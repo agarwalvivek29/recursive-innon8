@@ -35,15 +35,15 @@ function Header() {
   };
 
   useEffect(()=>{
-    if(isSignedIn && !userL){
-      const data = getUserData();
-      if(!data){
-        toast.error('User data not fetched');
-        toast.success('Signed in successfully');
-        toast.info('Complete this form to proceed');
-        navigate('/registration');
-      }
-    }
+    // if(isSignedIn && !userL){
+    //   const data = getUserData();
+    //   if(!data){
+    //     toast.error('User data not fetched');
+    //     toast.success('Signed in successfully');
+    //     toast.info('Complete this form to proceed');
+    //     navigate('/registration');
+    //   }
+    // }
   },[isSignedIn])
 
 
