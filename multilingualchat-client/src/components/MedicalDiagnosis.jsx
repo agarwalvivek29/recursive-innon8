@@ -19,7 +19,7 @@ const MedicalDiagnosis = () => {
     };
 
     try {
-      const response = await fetch('http://localhost:5000/api/medical/diagnose', {
+      const response = await fetch('https://recursive-innon8-2.onrender.com/api/medical/diagnose', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
