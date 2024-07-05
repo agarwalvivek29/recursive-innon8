@@ -94,7 +94,8 @@ app.get('/api/patient/:id', async (req, res) => {
     console.log(patientId);
     // Fetch encrypted data from blockchain
     const data = await contract.methods.getPatientData(patientId).call();
-    console.log(data[0].encryptedData);
+    console.log(data);
+    console.log(data.length > 0 ? data[0].encryptedData : "");
 
     if (data.length === 0) {
       return res.status(404).send({ error: 'No data found for this patient ID' });
