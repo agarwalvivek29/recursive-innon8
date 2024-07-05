@@ -36,7 +36,7 @@ function Header() {
         <ul className='flex gap-10'>    
         <Link to='/'><li className='hover:underline cursor-pointer'>Home</li></Link>
         
-        <a href='#serv'><li className='hover:underline cursor-pointer'>Service</li></a>
+        <Link to='/book-appointment'><li className='hover:underline cursor-pointer'>Doctors</li></Link>
         <li className='hover:underline cursor-pointer'>Contact</li>
        <Link to='/Pdashboard'><li>p-dashboard</li></Link> 
        <Link to='/Ddashboard'><li>D-dashboard</li></Link> 
