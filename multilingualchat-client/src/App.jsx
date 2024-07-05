@@ -15,6 +15,7 @@ import Doctor from './components/Doctor/Doctor';
 import Alldoctor from "./components/Alldoctor/Alldoctor"
 import BlockChain from './components/BlockChainPart/Blockchain';
 import DoctorForm from './components/BlockChainPart/PatientForm/DoctorForm';
+import MedicalDiagnosis from './components/MedicalDiagnosis';
 
 export const BACKENDURL = 'https://recursive-innon8.onrender.com';
 // export const BACKENDURL = 'http://localhost:8000';
@@ -34,7 +35,7 @@ function App() {
           <Route path='/geminiModel' element={<GeminiModel />} />
           <Route path='/registration' element={<Pform />} />
           <Route path='/doctor' element={<Doctor />} />
-          
+          <Route path='/preempt' element={<MedicalDiagnosis />} />
           <Route path='/book-appointment' element={<Alldoctor />} />
           <Route path='/dashboard' element={ user ? user.role === 'doctor' ? <Ddashboard /> : <Pdashboard /> : <></> } />
           <Route path='/blockChain' element={<BlockChain />} />

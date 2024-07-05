@@ -60,9 +60,9 @@ function Header() {
     <div>
         <ul className='flex gap-10'>    
         <Link to='/'><li className='hover:underline cursor-pointer'>Home</li></Link>
-        <Link to='/chk'> <li className='hover:underline cursor-pointer'>Check Disease</li>  </Link>
-        
-        <a href='/blockChain'><li className='hover:underline cursor-pointer'>Add Medical Rcords</li></a>
+        <Link to='/chk'> <li className='hover:underline cursor-pointer'>Check Disease</li></Link>
+        <Link to='/preempt'><li className='hover:underline cursor-pointer'>Disease Predictor</li></Link>
+        <Link to='/blockChain'><li className='hover:underline cursor-pointer'>Add Medical Rcords</li></Link>
         <Link to='/records' className='hover:underline cursor-pointer'>My Medical Records</Link>
         <Link to='/dashboard'><li>Dashboard</li></Link> 
         </ul>
